@@ -1,5 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import cors from 'cors'
+import path from 'path'
 
 import routes from './routes'
 import mongokey from './mongokey' //need create to add keys of mongo atlas
@@ -11,7 +13,9 @@ mongoose.connect(mongokey, {
     useUnifiedTopology: true,
 })
 
+app.use(cors())
 app.use(express.json())
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
 app.use(routes)
 
 //Server start
