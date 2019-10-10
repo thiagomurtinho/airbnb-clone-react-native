@@ -4,7 +4,7 @@ import cors from 'cors'
 import path from 'path'
 
 import routes from './routes'
-import mongokey from './mongokey' //need create to add keys of mongo atlas
+import mongokey from './config/mongokey' //need create to add keys of mongo atlas
 
 const app = express()
 
